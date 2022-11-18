@@ -1,6 +1,6 @@
 plugins {
     id("multiplatform-configuration")
-//    id("co.touchlab.faktory.kmmbridge") version "0.3.2"
+    id("co.touchlab.faktory.kmmbridge") version "0.3.2"
 }
 
 kotlin {
@@ -31,8 +31,9 @@ kotlin {
 }
 
 
-//kmmbridge {
-//    mavenPublishArtifacts()
-//    githubReleaseVersions()
-//    spm()
-//}
+kmmbridge {
+    mavenPublishArtifacts()
+    githubReleaseVersions()
+    spm()
+
+}
