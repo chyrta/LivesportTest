@@ -32,8 +32,7 @@ kotlin {
 
 
 kmmbridge {
-    mavenPublishArtifacts()
+    githubReleaseArtifacts()
     githubReleaseVersions()
     spm()
-
 }
