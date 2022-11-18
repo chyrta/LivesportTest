@@ -1,5 +1,6 @@
 plugins {
     id("multiplatform-configuration")
+//    id("co.touchlab.faktory.kmmbridge") version "0.3.2"
 }
 
 kotlin {
@@ -7,7 +8,12 @@ kotlin {
     iosSimulatorArm64()
 
     sourceSets {
-        val commonMain by getting
+        val commonMain by getting {
+            dependencies {
+                implementation(project(":core:common"))
+                implementation(project(":search:logic"))
+            }
+        }
         val commonTest by getting {
             dependencies {
                 implementation(kotlin("test"))
@@ -24,10 +30,9 @@ kotlin {
     }
 }
 
-//
+
 //kmmbridge {
-//  githubReleaseArtifacts()
-//  githubReleaseVersions()
-//  versionPrefix.set("0.1")
-//  spm()
+//    mavenPublishArtifacts()
+//    githubReleaseVersions()
+//    spm()
 //}

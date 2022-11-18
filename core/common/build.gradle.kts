@@ -14,9 +14,14 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
+                api(Deps.di.koin.koinCore)
                 api(Deps.kotlinX.coroutines.core)
                 api(Deps.kotlinX.dateTime.dateTime)
+                api(Deps.kotlinX.serialization.serialization)
                 api(Deps.core.dateTime.klock)
+                api(Deps.network.ktor.core)
+                api(Deps.network.ktor.json)
+                api(Deps.network.ktor.contentNegotiation)
             }
         }
         val commonTest by getting {
@@ -29,6 +34,7 @@ kotlin {
                 api(Deps.kotlinX.coroutines.android)
                 api(Deps.di.koin.koinAndroid)
                 api(Deps.di.koin.koinCompose)
+                api(Deps.network.ktor.okHttp)
             }
         }
         val androidTest by getting

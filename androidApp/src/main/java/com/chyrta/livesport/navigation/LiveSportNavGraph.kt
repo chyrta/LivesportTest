@@ -4,7 +4,10 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.chyrta.livesport.search.logic.presentation.SearchViewModel
 import com.chyrta.livesport.search.ui.SearchScreen
+import kiwi.orbit.compose.ui.controls.Text
+import org.koin.androidx.compose.get
 
 @Composable
 fun LiveSportNavGraph(
@@ -16,10 +19,16 @@ fun LiveSportNavGraph(
         startDestination = startDestination
     ) {
         composable(LiveSportNavRoute.List.route) {
-            SearchScreen()
+            val viewModel: SearchViewModel = get()
+            SearchScreen(
+                viewModel = viewModel,
+                onNavigateToDetail = {
+                    navController.navigate(LiveSportNavRoute.Detail.route)
+                }
+            )
         }
         composable(LiveSportNavRoute.Detail.route) {
-            SearchScreen()
+            Text("Empty detail screen")
         }
     }
 }

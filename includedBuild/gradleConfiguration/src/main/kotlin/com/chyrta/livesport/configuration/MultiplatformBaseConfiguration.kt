@@ -1,13 +1,10 @@
 package com.chyrta.livesport.configuration
 
-import Deps
 import com.android.build.api.dsl.LibraryExtension
 import org.gradle.api.JavaVersion
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.get
-import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
-import org.jetbrains.kotlin.gradle.dsl.kotlinExtension
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 class MultiplatformBaseConfiguration : Plugin<Project> {
@@ -15,6 +12,7 @@ class MultiplatformBaseConfiguration : Plugin<Project> {
     override fun apply(target: Project): Unit = with(target) {
         plugins.apply(Plugins.library)
         plugins.apply(Plugins.kotlinMultiplatform)
+        plugins.apply(Plugins.kotlinSerialization)
 
         val androidExtension = extensions.getByType(LibraryExtension::class.java)
         with(androidExtension) {

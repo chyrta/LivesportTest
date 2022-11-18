@@ -14,6 +14,7 @@ object Deps {
     val core = Core
     val kiwi = Kiwi
     val network = Network
+    val image = Image
     val di = Di
     val quality = Quality
 
@@ -39,6 +40,7 @@ object Deps {
         }
 
         object Serialization {
+            const val plugin = "org.jetbrains.kotlin:kotlin-serialization:$kotlinVersion"
             const val serialization =
                 "org.jetbrains.kotlinx:kotlinx-serialization-json:$kotlinSerializationVersion"
         }
@@ -100,14 +102,22 @@ object Deps {
         }
     }
 
+    object Image {
+        private const val coilVersion = "2.2.2"
+
+        const val coil = "io.coil-kt:coil-compose:2.2.2"
+    }
+
     object Di {
-        private const val koinVersion = "3.3.0"
+        private const val koinCoreVersion = "3.2.2"
+        private const val koinAndroidVersion = "3.3.0"
 
         val koin = Koin
 
         object Koin {
-            const val koinAndroid = "io.insert-koin:koin-android:$koinVersion"
-            const val koinCompose = "io.insert-koin:koin-androidx-compose:$koinVersion"
+            const val koinCore = "io.insert-koin:koin-core:$koinCoreVersion"
+            const val koinAndroid = "io.insert-koin:koin-android:$koinAndroidVersion"
+            const val koinCompose = "io.insert-koin:koin-androidx-compose:$koinAndroidVersion"
         }
     }
 

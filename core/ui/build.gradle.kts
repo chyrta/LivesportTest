@@ -21,4 +21,5 @@ dependencies {
     api(Deps.kiwi.orbit.ui)
     api(Deps.kiwi.orbit.icons)
     api(Deps.kiwi.orbit.illustrations)
+    api(Deps.image.coil)
 }

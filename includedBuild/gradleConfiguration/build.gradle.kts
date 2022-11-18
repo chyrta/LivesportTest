@@ -13,6 +13,7 @@ repositories {
 dependencies {
     implementation(Deps.android.plugin)
     implementation(Deps.kotlin.plugin)
+    implementation(Deps.kotlinX.serialization.plugin)
     implementation("com.chyrta.livesport.dependencies:dependencies:SNAPSHOT")
 }
 
