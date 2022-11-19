@@ -1,17 +1,33 @@
 plugins {
     id("multiplatform-configuration")
-    id("co.touchlab.faktory.kmmbridge") version "0.3.2"
+    id("kmm-bridge-configuration")
 }
 
 kotlin {
-    ios()
-    iosSimulatorArm64()
+    ios {
+        binaries {
+            framework {
+                baseName = "LivesportKit"
+                export(project(":core:common"))
+                export(project(":search:logic"))
+            }
+        }
+    }
+    iosSimulatorArm64 {
+        binaries {
+            framework {
+                baseName = "LivesportKit"
+                export(project(":core:common"))
+                export(project(":search:logic"))
+            }
+        }
+    }
 
     sourceSets {
         val commonMain by getting {
             dependencies {
-                implementation(project(":core:common"))
-                implementation(project(":search:logic"))
+                api(project(":core:common"))
+                api(project(":search:logic"))
             }
         }
         val commonTest by getting {
@@ -20,13 +36,12 @@ kotlin {
             }
         }
         val iosMain by getting
+        val iosSimulatorArm64Main by getting
+        iosSimulatorArm64Main.dependsOn(iosMain
+        )
         val iosTest by getting
-        val iosSimulatorArm64Main by getting {
-            dependsOn(iosMain)
-        }
-        val iosSimulatorArm64Test by getting {
-            dependsOn(iosTest)
-        }
+        val iosSimulatorArm64Test by getting
+        iosSimulatorArm64Test.dependsOn(iosTest)
     }
 }
 
@@ -34,5 +49,6 @@ kotlin {
 kmmbridge {
     githubReleaseArtifacts()
     githubReleaseVersions()
-    spm()
+    spm("..")
+    versionPrefix.set("0.1")
 }

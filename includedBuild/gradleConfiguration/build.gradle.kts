@@ -14,6 +14,7 @@ dependencies {
     implementation(Deps.android.plugin)
     implementation(Deps.kotlin.plugin)
     implementation(Deps.kotlinX.serialization.plugin)
+    implementation("co.touchlab.faktory.kmmbridge:co.touchlab.faktory.kmmbridge.gradle.plugin:0.3.1")
     implementation("com.chyrta.livesport.dependencies:dependencies:SNAPSHOT")
 }
 
@@ -26,6 +27,10 @@ gradlePlugin {
         register("multiplatform-configuration") {
             id = "multiplatform-configuration"
             implementationClass = "com.chyrta.livesport.configuration.MultiplatformBaseConfiguration"
+        }
+        register("kmm-bridge-configuration") {
+            id = "kmm-bridge-configuration"
+            implementationClass = "com.chyrta.livesport.configuration.KmmBridgeConfiguration"
         }
         register("library-configuration") {
             id = "library-configuration"
