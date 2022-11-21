@@ -5,7 +5,7 @@ The app contains two screens: list and detail. Business logic which is done in p
 
 |<image src="assets/screenshot_1.png" width="250px">|<image src="assets/screenshot_2.png" width="250px">|
 |---|--|
-|<image src="assets/screenshot_4.png" width="250px">|<image src="assets/screenshot_4.png" width="250px">|
+|<image src="assets/screenshot_3.png" width="250px">|<image src="assets/screenshot_4.png" width="250px">|
 
 ## Setup for iOS
 Before launching the project for iOS, you have to prepare Swift Package using KMMBridge Gradle plugin.
