@@ -1,5 +1,6 @@
 package com.chyrta.livesport.common.base.di
 
+import com.chyrta.livesport.common.data.remote.Constants
 import io.ktor.client.HttpClient
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.client.plugins.defaultRequest
@@ -18,7 +19,7 @@ val networkModule = module {
         HttpClient {
             expectSuccess = true
             defaultRequest {
-                url("https://s.livesport.services/api/v2/")
+                url(Constants.LIVESPORT_API_URL)
             }
             install(ContentNegotiation) {
                 json(get())

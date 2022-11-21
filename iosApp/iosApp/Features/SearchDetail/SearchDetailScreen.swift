@@ -15,7 +15,7 @@ struct SearchDetailScreen: View {
     
     var body: some View {
         VStack {
-            KFImage(URL(string: item.image!)!)
+            KFImage(URL(string: item.image!))
                 .resizable()
                 .frame(width: 100, height: 100)
                 .clipShape(Circle())

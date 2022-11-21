@@ -1,5 +1,6 @@
 package com.chyrta.livesport.search.logic.domain.mapper
 
+import com.chyrta.livesport.common.data.remote.Constants
 import com.chyrta.livesport.search.logic.data.remote.model.ApiId
 import com.chyrta.livesport.search.logic.data.remote.model.ApiImage
 import com.chyrta.livesport.search.logic.data.remote.model.ApiSearchEntity
@@ -21,9 +22,13 @@ fun ApiSearchEntity.mapToSportEntity() = SearchResultItemEntity(
 )
 
 fun List<ApiImage>.mapToImageUrl(name: String): String {
-    val img = this.find { it.variantTypeId == 15 }?.path
-    val alternativeUrl = URLBuilder("https://ui-avatars.com/api/$name").buildString()
-    return img?.let { "https://www.livesport.cz/res/image/data/$img" } ?: alternativeUrl
+    val defaultImageFile = this.find { it.variantTypeId == 15 }?.path
+    val alternativeUrl = URLBuilder(Constants.UI_AVATAR_IMAGE_URL).apply {
+        parameters.append("name", name)
+    }.buildString()
+    return defaultImageFile
+        ?.let { Constants.LIVESPORT_IMAGE_URL + defaultImageFile }
+        ?: alternativeUrl
 }
 
 fun ApiId.mapToGenderEntity() = GenderEntity.values()[id - 1]
