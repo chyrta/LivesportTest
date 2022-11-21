@@ -13,9 +13,7 @@ import LivesportKit
 struct FilterBarView: View {
 
     public var selectedFilter: SearchFilter
-    public var onSelectAll: () -> Void
-    public var onSelectCompetitions: () -> Void
-    public var onSelectParticipants: () -> Void
+    public var onSelectFilter: (SearchFilter) -> Void
 
     var body: some View {
         ChipGroup(
@@ -28,9 +26,9 @@ struct FilterBarView: View {
             selection: .single,
             onItemSelected: { chipItem in
                 switch chipItem.name {
-                case Strings.shared.getString(id: "all"): onSelectAll()
-                case Strings.shared.getString(id: "competitions"): onSelectCompetitions()
-                case Strings.shared.getString(id: "participants"): onSelectParticipants()
+                case Strings.shared.getString(id: "all"): onSelectFilter(SearchFilter.all)
+                case Strings.shared.getString(id: "competitions"): onSelectFilter(SearchFilter.competitions)
+                case Strings.shared.getString(id: "participants"): onSelectFilter(SearchFilter.participants)
                 default: break
                 }
             }
@@ -42,9 +40,7 @@ struct FilterBarView_Previews: PreviewProvider {
     static var previews: some View {
         FilterBarView(
             selectedFilter: SearchFilter.all,
-            onSelectAll: { },
-            onSelectCompetitions: { },
-            onSelectParticipants: { }
+            onSelectFilter: { _ in }
         )
     }
 }

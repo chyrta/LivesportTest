@@ -16,7 +16,7 @@ struct SearchListRowView: View {
 
     var body: some View {
         HStack {
-            KFImage(URL(string: item.image!)!)
+            KFImage(URL(string: item.image!))
                 .resizable()
                 .frame(width: 48, height: 48)
                 .clipShape(Circle())

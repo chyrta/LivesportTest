@@ -29,9 +29,7 @@ struct SearchListScreen: View {
                     .padding(EdgeInsets(top: 16, leading: 16, bottom: 8, trailing: 16))
                 FilterBarView(
                     selectedFilter: viewModel.state.selectedFilter,
-                    onSelectAll: { viewModel.setEvent(event: SearchContractEventOnSelectAll()) },
-                    onSelectCompetitions: { viewModel.setEvent(event: SearchContractEventOnSelectCompetitions()) },
-                    onSelectParticipants: { viewModel.setEvent(event: SearchContractEventOnSelectParticipants()) }
+                    onSelectFilter: { filter in viewModel.setEvent(event: SearchContractEventOnSelectFilter(searchFilter: filter)) }
                 )
                 List(viewModel.state.items, id: \.sport.ordinal) { key in
                     Section(header: Text(key.sport.name)) {
