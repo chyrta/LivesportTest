@@ -16,7 +16,7 @@ You need to launch the following command:
 This command will generate an XCFramework file with business logic of the app and put it into the following path: `/shared/build/XCFrameworks/debug/LivesportKit.xcframework`
 
 ## Components
-- MVI architecture (inspired by [Daniel Avila Domingo project|https://github.com/daniaviladomingo/kmm])
+- MVI architecture (inspired by [Daniel Avila Domingo project](https://github.com/daniaviladomingo/kmm)
 - Jetpack Compose
 - SwiftUI
 - Kotlin Coroutines
