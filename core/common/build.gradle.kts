@@ -22,13 +22,10 @@ kotlin {
                 api(Deps.network.ktor.core)
                 api(Deps.network.ktor.json)
                 api(Deps.network.ktor.contentNegotiation)
+                api(Deps.network.ktor.mock)
             }
         }
-        val commonTest by getting {
-            dependencies {
-                implementation(kotlin("test"))
-            }
-        }
+        val commonTest by getting
         val androidMain by getting {
             dependencies {
                 api(Deps.kotlinX.coroutines.android)
@@ -38,7 +35,11 @@ kotlin {
             }
         }
         val androidTest by getting
-        val iosMain by getting
+        val iosMain by getting {
+            dependencies {
+                api(Deps.network.ktor.darwin)
+            }
+        }
         val iosTest by getting
         val iosSimulatorArm64Main by getting
         iosSimulatorArm64Main.dependsOn(iosMain)

@@ -3,15 +3,24 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		058557BB273AAA24004C7B11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 058557BA273AAA24004C7B11 /* Assets.xcassets */; };
 		058557D9273AAEEB004C7B11 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 058557D8273AAEEB004C7B11 /* Preview Assets.xcassets */; };
 		2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152FB032600AC8F00CF470E /* iOSApp.swift */; };
-		7555FF83242A565900829871 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* ContentView.swift */; };
-		A17DC0F82928427200ECC58C /* SearchListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17DC0F72928427200ECC58C /* SearchListViewModel.swift */; };
+		A17DC0F82928427200ECC58C /* SearchListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17DC0F72928427200ECC58C /* SearchListVM.swift */; };
+		A17DC11229286C5800ECC58C /* SearchListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17DC11129286C5800ECC58C /* SearchListScreen.swift */; };
+		A17DC1152929012C00ECC58C /* SwiftUIChipGroup in Frameworks */ = {isa = PBXBuildFile; productRef = A17DC1142929012C00ECC58C /* SwiftUIChipGroup */; };
+		A17DC119292907E600ECC58C /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = A17DC118292907E600ECC58C /* Kingfisher */; };
+		A1B1F66F292986350020EE29 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B1F66E292986350020EE29 /* SearchBarView.swift */; };
+		A1B1F671292988FC0020EE29 /* SearchListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B1F670292988FC0020EE29 /* SearchListRowView.swift */; };
+		A1B1F675292989680020EE29 /* FilterBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B1F674292989680020EE29 /* FilterBarView.swift */; };
+		A1B1F67B292995520020EE29 /* SearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B1F67A292995520020EE29 /* SearchTextField.swift */; };
+		A1B1F680292997C20020EE29 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A1B1F682292997C20020EE29 /* Localizable.strings */; };
+		A1B1F685292A3AEE0020EE29 /* LivesportKit in Frameworks */ = {isa = PBXBuildFile; productRef = A1B1F684292A3AEE0020EE29 /* LivesportKit */; };
+		A1B1F687292A433D0020EE29 /* SearchDetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B1F686292A433D0020EE29 /* SearchDetailScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,10 +28,32 @@
 		058557D8273AAEEB004C7B11 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2152FB032600AC8F00CF470E /* iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSApp.swift; sourceTree = "<group>"; };
 		7555FF7B242A565900829871 /* iosApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		7555FF82242A565900829871 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7555FF8C242A565B00829871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A17DC0F72928427200ECC58C /* SearchListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListViewModel.swift; sourceTree = "<group>"; };
+		A17DC0F72928427200ECC58C /* SearchListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListVM.swift; sourceTree = "<group>"; };
+		A17DC10C2928633700ECC58C /* LivesportKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = LivesportKit.xcframework; path = ../shared/build/XCFrameworks/debug/LivesportKit.xcframework; sourceTree = "<group>"; };
+		A17DC11129286C5800ECC58C /* SearchListScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListScreen.swift; sourceTree = "<group>"; };
+		A17DC1162929013D00ECC58C /* Livesport */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Livesport; path = ..; sourceTree = "<group>"; };
+		A1B1F66E292986350020EE29 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
+		A1B1F670292988FC0020EE29 /* SearchListRowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchListRowView.swift; sourceTree = "<group>"; };
+		A1B1F674292989680020EE29 /* FilterBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterBarView.swift; sourceTree = "<group>"; };
+		A1B1F67A292995520020EE29 /* SearchTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTextField.swift; sourceTree = "<group>"; };
+		A1B1F681292997C20020EE29 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A1B1F683292997CD0020EE29 /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A1B1F686292A433D0020EE29 /* SearchDetailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetailScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A17DC10F2928633700ECC58C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A17DC119292907E600ECC58C /* Kingfisher in Frameworks */,
+				A17DC1152929012C00ECC58C /* SwiftUIChipGroup in Frameworks */,
+				A1B1F685292A3AEE0020EE29 /* LivesportKit in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		058557D7273AAEEB004C7B11 /* Preview Content */ = {
@@ -36,8 +67,11 @@
 		7555FF72242A565900829871 = {
 			isa = PBXGroup;
 			children = (
+				A1B1F682292997C20020EE29 /* Localizable.strings */,
+				A17DC108292862D700ECC58C /* Packages */,
 				7555FF7D242A565900829871 /* iosApp */,
 				7555FF7C242A565900829871 /* Products */,
+				A17DC10B2928633600ECC58C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -52,10 +86,9 @@
 		7555FF7D242A565900829871 /* iosApp */ = {
 			isa = PBXGroup;
 			children = (
-				A17DC0F62928425A00ECC58C /* SearchDetail */,
-				A17DC0F52928424E00ECC58C /* SearchList */,
+				A1B1F677292992400020EE29 /* Components */,
+				A1B1F676292992360020EE29 /* Features */,
 				058557BA273AAA24004C7B11 /* Assets.xcassets */,
-				7555FF82242A565900829871 /* ContentView.swift */,
 				7555FF8C242A565B00829871 /* Info.plist */,
 				2152FB032600AC8F00CF470E /* iOSApp.swift */,
 				058557D7273AAEEB004C7B11 /* Preview Content */,
@@ -66,7 +99,11 @@
 		A17DC0F52928424E00ECC58C /* SearchList */ = {
 			isa = PBXGroup;
 			children = (
-				A17DC0F72928427200ECC58C /* SearchListViewModel.swift */,
+				A1B1F674292989680020EE29 /* FilterBarView.swift */,
+				A1B1F670292988FC0020EE29 /* SearchListRowView.swift */,
+				A17DC0F72928427200ECC58C /* SearchListVM.swift */,
+				A17DC11129286C5800ECC58C /* SearchListScreen.swift */,
+				A1B1F66E292986350020EE29 /* SearchBarView.swift */,
 			);
 			path = SearchList;
 			sourceTree = "<group>";
@@ -74,8 +111,42 @@
 		A17DC0F62928425A00ECC58C /* SearchDetail */ = {
 			isa = PBXGroup;
 			children = (
+				A1B1F686292A433D0020EE29 /* SearchDetailScreen.swift */,
 			);
 			path = SearchDetail;
+			sourceTree = "<group>";
+		};
+		A17DC108292862D700ECC58C /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				A17DC1162929013D00ECC58C /* Livesport */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
+		A17DC10B2928633600ECC58C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A17DC10C2928633700ECC58C /* LivesportKit.xcframework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A1B1F676292992360020EE29 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				A17DC0F62928425A00ECC58C /* SearchDetail */,
+				A17DC0F52928424E00ECC58C /* SearchList */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		A1B1F677292992400020EE29 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				A1B1F67A292995520020EE29 /* SearchTextField.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -87,12 +158,18 @@
 			buildPhases = (
 				7555FF77242A565900829871 /* Sources */,
 				7555FF79242A565900829871 /* Resources */,
+				A17DC10F2928633700ECC58C /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = iosApp;
+			packageProductDependencies = (
+				A17DC1142929012C00ECC58C /* SwiftUIChipGroup */,
+				A17DC118292907E600ECC58C /* Kingfisher */,
+				A1B1F684292A3AEE0020EE29 /* LivesportKit */,
+			);
 			productName = iosApp;
 			productReference = 7555FF7B242A565900829871 /* iosApp.app */;
 			productType = "com.apple.product-type.application";
@@ -119,8 +196,13 @@
 			knownRegions = (
 				en,
 				Base,
+				cs,
 			);
 			mainGroup = 7555FF72242A565900829871;
+			packageReferences = (
+				A17DC1132929012C00ECC58C /* XCRemoteSwiftPackageReference "SwiftUIChipGroup" */,
+				A17DC117292907E600ECC58C /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = 7555FF7C242A565900829871 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -136,6 +218,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				058557D9273AAEEB004C7B11 /* Preview Assets.xcassets in Resources */,
+				A1B1F680292997C20020EE29 /* Localizable.strings in Resources */,
 				058557BB273AAA24004C7B11 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -147,19 +230,37 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A17DC11229286C5800ECC58C /* SearchListScreen.swift in Sources */,
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
-				7555FF83242A565900829871 /* ContentView.swift in Sources */,
-				A17DC0F82928427200ECC58C /* SearchListViewModel.swift in Sources */,
+				A1B1F675292989680020EE29 /* FilterBarView.swift in Sources */,
+				A1B1F66F292986350020EE29 /* SearchBarView.swift in Sources */,
+				A1B1F687292A433D0020EE29 /* SearchDetailScreen.swift in Sources */,
+				A17DC0F82928427200ECC58C /* SearchListVM.swift in Sources */,
+				A1B1F671292988FC0020EE29 /* SearchListRowView.swift in Sources */,
+				A1B1F67B292995520020EE29 /* SearchTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		A1B1F682292997C20020EE29 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A1B1F681292997C20020EE29 /* en */,
+				A1B1F683292997CD0020EE29 /* cs */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		7555FFA3242A565B00829871 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -221,6 +322,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -332,6 +434,42 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A17DC1132929012C00ECC58C /* XCRemoteSwiftPackageReference "SwiftUIChipGroup" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Open-Bytes/SwiftUIChipGroup";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.0;
+			};
+		};
+		A17DC117292907E600ECC58C /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A17DC1142929012C00ECC58C /* SwiftUIChipGroup */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A17DC1132929012C00ECC58C /* XCRemoteSwiftPackageReference "SwiftUIChipGroup" */;
+			productName = SwiftUIChipGroup;
+		};
+		A17DC118292907E600ECC58C /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A17DC117292907E600ECC58C /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		A1B1F684292A3AEE0020EE29 /* LivesportKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = LivesportKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 7555FF73242A565900829871 /* Project object */;
 }

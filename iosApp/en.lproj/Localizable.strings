@@ -1,0 +1,13 @@
+/* 
+  Localizable.strings
+  iosApp
+
+  Created by Dzmitry Chyrta on 20.11.2022.
+  Copyright © 2022 orgName. All rights reserved.
+*/
+"navigation_bar_title" = "Livesport Search";
+"search_bar_button" = "Search";
+"all" = "All";
+"competitions" = "Competitions";
+"participants" = "Participants";
+"enter_your_search_request" = "Enter your search request";

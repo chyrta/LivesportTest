@@ -5,10 +5,10 @@ import com.chyrta.livesport.search.logic.data.remote.model.ApiImage
 import com.chyrta.livesport.search.logic.data.remote.model.ApiSearchEntity
 import com.chyrta.livesport.search.logic.data.remote.model.ApiSearchFilter
 import com.chyrta.livesport.search.logic.domain.model.GenderEntity
-import com.chyrta.livesport.search.logic.domain.model.ImageEntity
 import com.chyrta.livesport.search.logic.domain.model.SearchFilter
 import com.chyrta.livesport.search.logic.domain.model.SearchResultItemEntity
 import com.chyrta.livesport.search.logic.domain.model.SportEntity
+import io.ktor.http.URLBuilder
 
 fun ApiSearchEntity.mapToSportEntity() = SearchResultItemEntity(
     id = id,
@@ -20,19 +20,11 @@ fun ApiSearchEntity.mapToSportEntity() = SearchResultItemEntity(
     image = images.mapToImageUrl(name),
 )
 
-fun List<ApiImage>.mapToImageUrl(name: String): String? {
+fun List<ApiImage>.mapToImageUrl(name: String): String {
     val img = this.find { it.variantTypeId == 15 }?.path
-    val imgUrl = img?.let {
-        "https://www.livesport.cz/res/image/data/$img"
-    } ?: "https://ui-avatars.com/api/?name=$name"
-    return imgUrl
+    val alternativeUrl = URLBuilder("https://ui-avatars.com/api/$name").buildString()
+    return img?.let { "https://www.livesport.cz/res/image/data/$img" } ?: alternativeUrl
 }
-
-fun ApiImage.mapToImageEntity() = ImageEntity(
-    path = path,
-    usageId = usageId,
-    variantTypeId = variantTypeId,
-)
 
 fun ApiId.mapToGenderEntity() = GenderEntity.values()[id - 1]
 

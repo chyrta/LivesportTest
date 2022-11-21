@@ -11,6 +11,7 @@ object Deps {
     val kotlin = Kotlin
     val kotlinX = KotlinX
     val android = Android
+    val kmmBridge = KmmBridge
     val core = Core
     val kiwi = Kiwi
     val network = Network
@@ -59,6 +60,7 @@ object Deps {
         object Ktor {
             const val core = "io.ktor:ktor-client-core:$ktorVersion"
             const val okHttp = "io.ktor:ktor-client-okhttp:$ktorVersion"
+            const val darwin = "io.ktor:ktor-client-darwin:$ktorVersion"
             const val contentNegotiation = "io.ktor:ktor-client-content-negotiation:$ktorVersion"
             const val json = "io.ktor:ktor-serialization-kotlinx-json:$ktorVersion"
             const val mock = "io.ktor:ktor-client-mock:$ktorVersion"
@@ -102,6 +104,13 @@ object Deps {
         }
     }
 
+    object KmmBridge {
+        private const val kmmBridgeVersion = "0.3.1"
+
+        val plugin =
+            "co.touchlab.faktory.kmmbridge:co.touchlab.faktory.kmmbridge.gradle.plugin:$kmmBridgeVersion"
+    }
+
     object Image {
         private const val coilVersion = "2.2.2"
 
@@ -118,6 +127,8 @@ object Deps {
             const val koinCore = "io.insert-koin:koin-core:$koinCoreVersion"
             const val koinAndroid = "io.insert-koin:koin-android:$koinAndroidVersion"
             const val koinCompose = "io.insert-koin:koin-androidx-compose:$koinAndroidVersion"
+            const val koinTest = "io.insert-koin:koin-test:$koinCoreVersion"
+            const val koinJunit = "io.insert-koin:koin-test-junit5:$koinCoreVersion"
         }
     }
 
@@ -167,6 +178,7 @@ object Deps {
         private const val suitesVersion = "1.8.1"
         private const val koverVersion = "0.6.1"
         private const val ktlintVersion = "11.0.0"
+        private const val turbineVersion = "0.12.1"
 
         val detekt = Detekt
         val ktlint = KtLint
@@ -187,6 +199,7 @@ object Deps {
         }
 
         object UnitTest {
+            const val turbine = "app.cash.turbine:turbine:$turbineVersion"
             const val coroutinesTest =
                 "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesTestVersion"
             const val mockk = "io.mockk:mockk:$mockkVersion"

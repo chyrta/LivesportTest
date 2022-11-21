@@ -4,7 +4,7 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class ApiImage(
-    val path: String,
+    val path: String? = null,
     val usageId: Int,
     val variantTypeId: Int
 )

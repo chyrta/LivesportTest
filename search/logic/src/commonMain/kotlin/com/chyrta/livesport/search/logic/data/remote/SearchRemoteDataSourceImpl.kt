@@ -9,6 +9,7 @@ import com.chyrta.livesport.common.util.safeRequest
 import io.ktor.client.HttpClient
 import io.ktor.client.request.parameter
 import io.ktor.client.request.url
+import io.ktor.http.HttpStatusCode
 
 class SearchRemoteDataSourceImpl(
     private val liveSportHttpClient: HttpClient,
@@ -31,10 +32,10 @@ class SearchRemoteDataSourceImpl(
             is ApiResponse.Success -> ApiResult.Success(response.body)
             is ApiResponse.Error.HttpError -> {
                 when (response.code) {
-                    400 -> ApiResult.Failure.ApiFailure(response.errorBody)
-                    422 -> ApiResult.Failure.ApiFailure(response.errorBody)
-                    503 -> ApiResult.Failure.ApiFailure(response.errorBody)
-                    else -> ApiResult.Failure.UnknownFailure(Error("Unknown error"))
+                    HttpStatusCode.BadRequest.value,
+                    HttpStatusCode.UnprocessableEntity.value,
+                    HttpStatusCode.ServiceUnavailable.value -> ApiResult.Failure.ApiFailure(response.errorBody)
+                    else -> ApiResult.Failure.HttpFailure(response.code, response.errorBody)
                 }
             }
             is ApiResponse.Error.NetworkError -> ApiResult.Failure.NetworkFailure(response.e)

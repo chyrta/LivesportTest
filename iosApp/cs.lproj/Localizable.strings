@@ -1,0 +1,13 @@
+/* 
+  Localizable.strings
+  iosApp
+
+  Created by Dzmitry Chyrta on 20.11.2022.
+  Copyright © 2022 orgName. All rights reserved.
+*/
+"navigation_bar_title" = "Livesport Hledání";
+"search_bar_button" = "Hledat";
+"all" = "Vše";
+"competitions" = "Soutěže";
+"participants" = "Participanti";
+"enter_your_search_request" = "Zadejte svůj požadavek";

@@ -17,17 +17,24 @@ kotlin {
                 implementation(project(":core:common"))
             }
         }
-        val commonTest by getting {
-            dependencies {
-                implementation(kotlin("test"))
-            }
-        }
+        val commonTest by getting
         val androidMain by getting {
             dependencies {
                 implementation(project(":core:common"))
             }
         }
-        val androidTest by getting
+        val androidTest by getting {
+            dependencies {
+                implementation(Deps.di.koin.koinTest)
+                implementation(Deps.di.koin.koinJunit)
+                implementation(Deps.quality.unitTest.turbine)
+                implementation(Deps.quality.unitTest.mockk)
+                implementation(Deps.quality.unitTest.junit5Runner)
+                implementation(Deps.quality.unitTest.coroutinesTest)
+                implementation(Deps.quality.unitTest.junitJupiterAPI)
+                implementation(Deps.quality.unitTest.junitJupiterEngine)
+            }
+        }
 
         val iosMain by getting
         val iosSimulatorArm64Main by getting {

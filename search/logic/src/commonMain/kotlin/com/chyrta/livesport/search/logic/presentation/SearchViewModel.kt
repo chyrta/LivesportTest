@@ -1,47 +1,70 @@
 package com.chyrta.livesport.search.logic.presentation
 
-import com.chyrta.livesport.search.logic.domain.model.SearchFilter
-import com.chyrta.livesport.search.logic.domain.usecase.GetSearchResultUseCase
 import com.chyrta.livesport.common.base.mvi.BaseViewModel
-import kotlinx.coroutines.launch
+import com.chyrta.livesport.search.logic.domain.usecase.GetSearchResultUseCase
+import com.chyrta.livesport.search.logic.presentation.SearchContract.Effect
 import com.chyrta.livesport.search.logic.presentation.SearchContract.Event
 import com.chyrta.livesport.search.logic.presentation.SearchContract.State
-import com.chyrta.livesport.search.logic.presentation.SearchContract.Effect
+import com.chyrta.livesport.search.logic.presentation.model.SearchResultViewItem
+import kotlinx.coroutines.launch
+import org.koin.core.component.KoinComponent
+import org.koin.core.component.inject
 
-class SearchViewModel(
-    private val getSearchResultUseCase: GetSearchResultUseCase,
-) : BaseViewModel<Event, State, Effect>() {
+open class SearchViewModel: BaseViewModel<Event, State, Effect>(), KoinComponent {
 
-    override fun createInitialState(): State = State()
+    private val getSearchResultUseCase: GetSearchResultUseCase by inject()
+
+    override fun createInitialState(): State = State.idle()
 
     override fun handleEvent(event: Event) {
         when (event) {
             is Event.OnSearch -> {
-                search()
                 setEffect { Effect.HideKeyboard }
+                search()
             }
             is Event.OnSearchQuery -> {
                 setState { copy(query = event.text) }
             }
             is Event.OnClearQuery -> {
-                setState { copy(query = "", items = emptyMap()) }
+                setState {
+                    copy(
+                        query = "",
+                        items = emptyList(),
+                        errorState = null,
+                        isLoading = false,
+                        isSearchCompleted = false
+                    )
+                }
                 setEffect { Effect.HideKeyboard }
             }
-            is Event.OnSelectAll -> setState { copy(selectedFilter = SearchFilter.All) }
-            is Event.OnSelectCompetitions -> setState { copy(selectedFilter = SearchFilter.Competitions) }
-            is Event.OnSelectParticipants -> setState { copy(selectedFilter = SearchFilter.Participants) }
+            is Event.OnSelectFilter -> setState { copy(selectedFilter = event.searchFilter) }
         }
     }
 
     private fun search() = launch {
-        setState { copy(isLoading = true) }
+        setState {
+            copy(
+                isLoading = true,
+                isSearchCompleted = false,
+                errorState = null
+            )
+        }
         val result = getSearchResultUseCase(currentState.query, currentState.selectedFilter)
         if (result.isSuccess) {
-            val items = result.getOrNull().orEmpty()
-            setState { copy(items = items.groupBy { it.sport }, isLoading = false) }
+            val items = result.getOrNull()
+                .orEmpty()
+                .map { SearchResultViewItem(it.key, it.value) }
+
+            setState {
+                copy(
+                    items = items,
+                    isLoading = false,
+                    isSearchCompleted = true
+                )
+            }
             setEffect { Effect.ScrollResultToTop }
         } else {
-            setState { copy(isLoading = false) }
+            setState { copy(isLoading = false, isSearchCompleted = true) }
         }
     }
 

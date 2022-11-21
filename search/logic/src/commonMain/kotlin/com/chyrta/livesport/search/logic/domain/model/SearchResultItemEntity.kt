@@ -9,5 +9,5 @@ data class SearchResultItemEntity(
     val type: ApiId,
     val sport: SportEntity,
     val defaultCountry: String,
-    val image: String? = null
+    val image: String?
 )

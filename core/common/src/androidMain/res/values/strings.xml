@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="navigation_bar_title">Livesport Search</string>
+    <string name="search_bar_button">Search</string>
+    <string name="all">All</string>
+    <string name="competitions">Competitions</string>
+    <string name="participants">Participants</string>
+    <string name="enter_your_search_request">Enter your search request</string>
+    <string name="try_again">Try again</string>
+    <string name="no_results">No results</string>
+    <string name="try_different_query">Try different search query</string>
+    <string name="start_search_now">Start your search now</string>
+</resources>

@@ -3,6 +3,10 @@ plugins {
     id("kmm-bridge-configuration")
 }
 
+android {
+    namespace = "com.chyrta.livesport.shared"
+}
+
 kotlin {
     ios {
         binaries {
@@ -47,8 +51,9 @@ kotlin {
 
 
 kmmbridge {
+    frameworkName.set("LivesportKit")
     githubReleaseArtifacts()
     githubReleaseVersions()
-    spm("..")
+    spm()
     versionPrefix.set("0.1")
 }
