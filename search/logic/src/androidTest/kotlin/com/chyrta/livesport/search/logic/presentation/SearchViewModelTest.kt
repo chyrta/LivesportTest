@@ -1,8 +1,8 @@
 package com.chyrta.livesport.search.logic.presentation
 
 import app.cash.turbine.test
-import app.cash.turbine.testIn
 import com.chyrta.livesport.common.domain.MainDispatcher
+import com.chyrta.livesport.common.util.Either
 import com.chyrta.livesport.search.logic.domain.model.SearchFilter
 import com.chyrta.livesport.search.logic.domain.model.SearchResultItemEntity
 import com.chyrta.livesport.search.logic.domain.model.SportEntity
@@ -16,9 +16,6 @@ import io.mockk.mockk
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.runBlocking
-import kotlinx.coroutines.test.TestCoroutineScope
-import kotlinx.coroutines.test.TestScope
-import kotlinx.coroutines.test.createTestCoroutineScope
 import kotlinx.coroutines.test.setMain
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertTrue
@@ -29,7 +26,7 @@ import org.koin.dsl.module
 import org.koin.test.KoinTest
 import org.koin.test.junit5.KoinTestExtension
 
-class SearchViewModelTest: KoinTest {
+class SearchViewModelTest : KoinTest {
 
     private val searchResultUseCase = mockk<GetSearchResultUseCase>()
 
@@ -71,7 +68,7 @@ class SearchViewModelTest: KoinTest {
         val event = SearchContract.Event.OnSearch
         coEvery { searchResultUseCase(any(), any()) } coAnswers {
             delay(1000L)
-            Result.success(emptyMap())
+            Either.Left(emptyMap())
         }
 
         underTest.uiState.test {
@@ -97,7 +94,7 @@ class SearchViewModelTest: KoinTest {
 
         coEvery { searchResultUseCase(any(), any()) } coAnswers {
             delay(1000L)
-            Result.success(resultsMap)
+            Either.Left(resultsMap)
         }
 
         underTest.uiState.test {
@@ -143,6 +140,4 @@ class SearchViewModelTest: KoinTest {
             assertEquals("", awaitItem().query)
         }
     }
-
 }
-

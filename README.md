@@ -1,6 +1,6 @@
 ## Overview
 
-An application that utilizes Livesport API in order to list search results based on search query and one of the filters.
+A KMM application in Android & iOS that utilizes Livesport API in order to list search results based on search query and one of the filters.
 The app contains two screens: list and detail. Business logic which is done in pure Kotlin Multiplatform is covered by unit tests.
 
 |<image src="assets/screenshot_1.png" width="250px">|<image src="assets/screenshot_2.png" width="250px">|
@@ -14,6 +14,13 @@ You need to launch the following command:
 ./gradlew shared:spmDevBuild
 ```
 This command will generate an XCFramework file with business logic of the app and put it into the following path: `/shared/build/XCFrameworks/debug/LivesportKit.xcframework`
+
+## Space for improvements? Completely agree!
+- Styled components for iOS app
+- 100% coverage of business logic with unit tests
+- Better Gradle plugin configuration
+- Better localization
+- Better naming/code/styling conventions according to the needs
 
 ## Components
 - MVI architecture (inspired by [Daniel Avila Domingo project](https://github.com/daniaviladomingo/kmm)

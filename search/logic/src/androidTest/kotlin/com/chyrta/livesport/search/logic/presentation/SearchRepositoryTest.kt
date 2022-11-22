@@ -62,7 +62,7 @@ class SearchRepositoryTest {
             )
         )
 
-        coEvery { searchRemoteDataSource.search(any(), any()) } coAnswers { ApiResult.Failure.ApiFailure(apiError) }
+        coEvery { searchRemoteDataSource.search(any(), any()) } coAnswers { ApiResult.Failure.ApiFailure(400, apiError) }
 
         val result = underTest.search("Hello", SearchFilter.Participants)
 
@@ -72,10 +72,10 @@ class SearchRepositoryTest {
 
     @Test
     fun `Given search repository when fetch results then it should return http code error`() = runBlocking {
-        coEvery { searchRemoteDataSource.search(any(), any()) } coAnswers { ApiResult.Failure.HttpFailure(500, null) }
+        coEvery { searchRemoteDataSource.search(any(), any()) } coAnswers { ApiResult.Failure.HttpFailure(500) }
         val result = underTest.search("Hello", SearchFilter.Competitions)
         assertTrue(result is RepositoryResult.Failure.HttpFailure)
-        assertEquals(result.code, 500)
+        assertEquals(result.statusCode, 500)
     }
 
     @Test
@@ -91,5 +91,4 @@ class SearchRepositoryTest {
         val result = underTest.search("Hello", SearchFilter.All)
         assertTrue(result is RepositoryResult.Failure.UnknownFailure)
     }
-
 }

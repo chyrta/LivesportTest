@@ -1,5 +1,6 @@
 package com.chyrta.livesport.search.logic.presentation.generator
 
+import com.chyrta.livesport.common.domain.model.ErrorEntity
 import com.chyrta.livesport.search.logic.data.remote.model.ApiId
 import com.chyrta.livesport.search.logic.data.remote.model.ApiSearchEntity
 import com.chyrta.livesport.search.logic.domain.model.GenderEntity
@@ -20,6 +21,12 @@ fun generateRandomApiGenderId() = ApiId(
 fun generateRandomApiSportId() = ApiId(
     id = Random.nextInt(1, SportEntity.values().size),
     name = generateRandomString()
+)
+
+fun generateErrorEntity(code: Int = Random.nextInt(100, 200)) = ErrorEntity(
+    code = code,
+    title = generateRandomString(),
+    message = generateRandomString(),
 )
 
 fun generateRandomApiId() = ApiId(
