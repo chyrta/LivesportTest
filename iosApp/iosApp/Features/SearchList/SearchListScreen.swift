@@ -12,7 +12,7 @@ import SwiftUIChipGroup
 import Kingfisher
 
 struct SearchListScreen: View {
-    
+
     @ObservedObject var viewModel: SearchListVM = SearchListVM()
     @State var searchQuery: String = ""
 
@@ -22,8 +22,13 @@ struct SearchListScreen: View {
                 SearchBarView(
                     searchQuery: $searchQuery,
                     onSearchClick: {
-                        viewModel.setEvent(event: SearchContractEventOnSearchQuery(text: searchQuery))
                         viewModel.setEvent(event: SearchContractEventOnSearch())
+                    },
+                    onChangeQuery: {
+                        viewModel.setEvent(event: SearchContractEventOnSearchQuery(text: $0))
+                    },
+                    onClearClick: {
+                        viewModel.setEvent(event: SearchContractEventOnClearQuery())
                     }
                 )
                     .padding(EdgeInsets(top: 16, leading: 16, bottom: 8, trailing: 16))
@@ -31,17 +36,27 @@ struct SearchListScreen: View {
                     selectedFilter: viewModel.state.selectedFilter,
                     onSelectFilter: { filter in viewModel.setEvent(event: SearchContractEventOnSelectFilter(searchFilter: filter)) }
                 )
-                List(viewModel.state.items, id: \.sport.ordinal) { key in
-                    Section(header: Text(key.sport.name)) {
-                        ForEach(key.results, id: \.id) { item in
-                            NavigationLink(destination: SearchDetailScreen(item: item)) {
-                                SearchListRowView(item: item)
-                            }
-                        }
+
+                ZStack {
+
+                    if (viewModel.state.emptyState) {
+                        EmptyStateView(title: "start_search_now".localized)
+                    } else if (viewModel.state.hasError) {
+                        SearchErrorView(
+                            errorState: viewModel.state.errorState!,
+                            onButtonClick: { viewModel.setEvent(event: SearchContractEventOnSearch()) }
+                        )
+                    } else if (viewModel.state.isLoadingResults) {
+                        ProgressView()
+                    } else if (viewModel.state.hasResults) {
+                        SearchListView(items: viewModel.state.items)
+                    } else if (viewModel.state.hasNoResults) {
+                        Text("no_results".localized)
                     }
-                }.listStyle(PlainListStyle())
+                }
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
-                .navigationTitle(Text(Strings.shared.getString(id: "navigation_bar_title")))
+                .navigationTitle(Text("navigation_bar_title".localized))
                 .navigationBarTitleDisplayMode(.inline)
         }
     }

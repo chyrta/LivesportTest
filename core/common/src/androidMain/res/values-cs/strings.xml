@@ -6,8 +6,24 @@
     <string name="competitions">Soutěže</string>
     <string name="participants">Participanti</string>
     <string name="enter_your_search_request">Zadejte svůj požadavek</string>
-    <string name="try_again">Zkusit znovu</string>
+    <string name="refresh">Obnovit</string>
     <string name="no_results">Žádné výsledky</string>
     <string name="try_different_query">Zkuste jiný požadavek</string>
     <string name="start_search_now">Začněte hledat</string>
+    <string name="sport_football">Fotbal</string>
+    <string name="sport_hockey">Hokej</string>
+    <string name="sport_tennis">Tenis</string>
+    <string name="sport_basketball">Basketbal</string>
+    <string name="sport_american_football">Americký fotbal</string>
+    <string name="sport_baseball">Baseball</string>
+    <string name="sport_handball">Házená</string>
+    <string name="sport_rugby">Ragby</string>
+    <string name="sport_floorball">Florbal</string>
+    <string name="error">Vyskytla se chyba</string>
+    <string name="error_state_unknown_error">Neznámá chyba</string>
+    <string name="error_state_service_unavailable">Služba je nedostupná</string>
+    <string name="error_state_http_error">Neznámá chyba s HTTP kodem</string>
+    <string name="error_state_network_error">Zkontrolujte prosím své internetové připojení</string>
+    <string name="error_state_missing_parameters">Chybí parametry. Zkontrolujte prosím svůj požadavek</string>
+    <string name="error_state_invalid_parameters">Neplatné parametry. Zkontrolujte prosím svůj požadavek</string>
 </resources>

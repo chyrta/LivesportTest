@@ -26,8 +26,9 @@ class SearchListVM: SearchViewModel, ObservableObject  {
             switch effect {
             case is SearchContractEffectHideKeyboard:
                 self.hideKeyboard = false
+                break
             default:
-                self
+                break
             }
         }
     }

@@ -6,8 +6,24 @@
     <string name="competitions">Competitions</string>
     <string name="participants">Participants</string>
     <string name="enter_your_search_request">Enter your search request</string>
-    <string name="try_again">Try again</string>
+    <string name="refresh">Refresh</string>
     <string name="no_results">No results</string>
     <string name="try_different_query">Try different search query</string>
     <string name="start_search_now">Start your search now</string>
+    <string name="error">An error occurred</string>
+    <string name="error_state_unknown_error">Unknown error</string>
+    <string name="error_state_service_unavailable">Service unavailable</string>
+    <string name="error_state_http_error">Unknown HTTP code error</string>
+    <string name="error_state_network_error">Please check your internet connection</string>
+    <string name="error_state_missing_parameters">There are missing parameters. Please check your request </string>
+    <string name="error_state_invalid_parameters">There are invalid parameters. Please check your request</string>
+    <string name="sport_football">Football</string>
+    <string name="sport_hockey">Hockey</string>
+    <string name="sport_tennis">Tennis</string>
+    <string name="sport_basketball">Basketball</string>
+    <string name="sport_american_football">American Football</string>
+    <string name="sport_baseball">Baseball</string>
+    <string name="sport_handball">Handball</string>
+    <string name="sport_rugby">Rugby</string>
+    <string name="sport_floorball">Floorball</string>
 </resources>

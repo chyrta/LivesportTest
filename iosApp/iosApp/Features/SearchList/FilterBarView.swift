@@ -18,17 +18,17 @@ struct FilterBarView: View {
     var body: some View {
         ChipGroup(
             chips: [
-                ChipItem(name: Strings.shared.getString(id: "all"), isSelected: selectedFilter == SearchFilter.all),
-                ChipItem(name: Strings.shared.getString(id: "competitions"), isSelected: selectedFilter == SearchFilter.competitions),
-                ChipItem(name: Strings.shared.getString(id: "participants"), isSelected: selectedFilter == SearchFilter.participants),
+                ChipItem(name: "all".localized, isSelected: selectedFilter == SearchFilter.all),
+                ChipItem(name: "competitions".localized, isSelected: selectedFilter == SearchFilter.competitions),
+                ChipItem(name: "participants".localized, isSelected: selectedFilter == SearchFilter.participants),
             ],
             width: .infinity,
             selection: .single,
             onItemSelected: { chipItem in
                 switch chipItem.name {
-                case Strings.shared.getString(id: "all"): onSelectFilter(SearchFilter.all)
-                case Strings.shared.getString(id: "competitions"): onSelectFilter(SearchFilter.competitions)
-                case Strings.shared.getString(id: "participants"): onSelectFilter(SearchFilter.participants)
+                case "all".localized: onSelectFilter(SearchFilter.all)
+                case "competitions".localized: onSelectFilter(SearchFilter.competitions)
+                case "participants".localized: onSelectFilter(SearchFilter.participants)
                 default: break
                 }
             }

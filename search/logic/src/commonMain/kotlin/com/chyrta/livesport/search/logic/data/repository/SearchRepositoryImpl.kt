@@ -22,16 +22,18 @@ class SearchRepositoryImpl(
             is ApiResult.Success -> RepositoryResult.Success(result.value.map { it.mapToSportEntity() })
             is ApiResult.Failure -> {
                 return when (result) {
-                    is ApiResult.Failure.ApiFailure -> RepositoryResult.Failure.ApiFailure(result.error?.mapToEntity())
+                    is ApiResult.Failure.ApiFailure -> RepositoryResult.Failure.ApiFailure(
+                        result.statusCode,
+                        result.error?.mapToEntity()
+                    )
                     is ApiResult.Failure.HttpFailure -> RepositoryResult.Failure.HttpFailure(
-                        result.code,
-                        result.error?.mapToEntity(),
+                        result.statusCode
                     )
                     is ApiResult.Failure.NetworkFailure -> RepositoryResult.Failure.NetworkFailure(
-                        result.error,
+                        result.error
                     )
                     is ApiResult.Failure.UnknownFailure -> RepositoryResult.Failure.UnknownFailure(
-                        result.error,
+                        result.error
                     )
                 }
             }

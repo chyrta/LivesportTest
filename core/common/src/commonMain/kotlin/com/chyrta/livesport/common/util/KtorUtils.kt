@@ -21,13 +21,15 @@ suspend inline fun <reified T, reified E> HttpClient.safeRequest(
         ApiResponse.Error.HttpError(e.response.status.value, e.errorBody())
     } catch (e: IOException) {
         ApiResponse.Error.NetworkError(e)
-    } catch (e: SerializationException) {
-        ApiResponse.Error.SerializationError(e)
+    } catch (e: Exception) {
+        ApiResponse.Error.GenericError(e)
     }
 
 suspend inline fun <reified E> ResponseException.errorBody(): E? =
     try {
         response.body()
     } catch (e: SerializationException) {
+        null
+    } catch (e: JsonConvertException) {
         null
     }

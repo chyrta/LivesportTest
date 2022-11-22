@@ -21,6 +21,10 @@
 		A1B1F680292997C20020EE29 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A1B1F682292997C20020EE29 /* Localizable.strings */; };
 		A1B1F685292A3AEE0020EE29 /* LivesportKit in Frameworks */ = {isa = PBXBuildFile; productRef = A1B1F684292A3AEE0020EE29 /* LivesportKit */; };
 		A1B1F687292A433D0020EE29 /* SearchDetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B1F686292A433D0020EE29 /* SearchDetailScreen.swift */; };
+		A1B1F68A292C43350020EE29 /* String+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B1F689292C43350020EE29 /* String+Localization.swift */; };
+		A1B1F68C292C46130020EE29 /* SearchErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B1F68B292C46130020EE29 /* SearchErrorView.swift */; };
+		A1B1F68E292CC22E0020EE29 /* SearchListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B1F68D292CC22E0020EE29 /* SearchListView.swift */; };
+		A1B1F690292CC23B0020EE29 /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B1F68F292CC23B0020EE29 /* EmptyStateView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +44,10 @@
 		A1B1F681292997C20020EE29 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A1B1F683292997CD0020EE29 /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A1B1F686292A433D0020EE29 /* SearchDetailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetailScreen.swift; sourceTree = "<group>"; };
+		A1B1F689292C43350020EE29 /* String+Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localization.swift"; sourceTree = "<group>"; };
+		A1B1F68B292C46130020EE29 /* SearchErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchErrorView.swift; sourceTree = "<group>"; };
+		A1B1F68D292CC22E0020EE29 /* SearchListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListView.swift; sourceTree = "<group>"; };
+		A1B1F68F292CC23B0020EE29 /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +94,7 @@
 		7555FF7D242A565900829871 /* iosApp */ = {
 			isa = PBXGroup;
 			children = (
+				A1B1F688292C43130020EE29 /* Extensions */,
 				A1B1F677292992400020EE29 /* Components */,
 				A1B1F676292992360020EE29 /* Features */,
 				058557BA273AAA24004C7B11 /* Assets.xcassets */,
@@ -104,6 +113,9 @@
 				A17DC0F72928427200ECC58C /* SearchListVM.swift */,
 				A17DC11129286C5800ECC58C /* SearchListScreen.swift */,
 				A1B1F66E292986350020EE29 /* SearchBarView.swift */,
+				A1B1F68B292C46130020EE29 /* SearchErrorView.swift */,
+				A1B1F68D292CC22E0020EE29 /* SearchListView.swift */,
+				A1B1F68F292CC23B0020EE29 /* EmptyStateView.swift */,
 			);
 			path = SearchList;
 			sourceTree = "<group>";
@@ -147,6 +159,14 @@
 				A1B1F67A292995520020EE29 /* SearchTextField.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		A1B1F688292C43130020EE29 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A1B1F689292C43350020EE29 /* String+Localization.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,11 +253,15 @@
 				A17DC11229286C5800ECC58C /* SearchListScreen.swift in Sources */,
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
 				A1B1F675292989680020EE29 /* FilterBarView.swift in Sources */,
+				A1B1F68A292C43350020EE29 /* String+Localization.swift in Sources */,
 				A1B1F66F292986350020EE29 /* SearchBarView.swift in Sources */,
 				A1B1F687292A433D0020EE29 /* SearchDetailScreen.swift in Sources */,
+				A1B1F690292CC23B0020EE29 /* EmptyStateView.swift in Sources */,
+				A1B1F68E292CC22E0020EE29 /* SearchListView.swift in Sources */,
 				A17DC0F82928427200ECC58C /* SearchListVM.swift in Sources */,
 				A1B1F671292988FC0020EE29 /* SearchListRowView.swift in Sources */,
 				A1B1F67B292995520020EE29 /* SearchTextField.swift in Sources */,
+				A1B1F68C292C46130020EE29 /* SearchErrorView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -382,6 +406,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"iosApp/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iosApp/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Livesport Search";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -401,6 +426,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"iosApp/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iosApp/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Livesport Search";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

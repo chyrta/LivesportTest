@@ -31,15 +31,12 @@ class SearchRemoteDataSourceImpl(
         return when (response) {
             is ApiResponse.Success -> ApiResult.Success(response.body)
             is ApiResponse.Error.HttpError -> {
-                when (response.code) {
-                    HttpStatusCode.BadRequest.value,
-                    HttpStatusCode.UnprocessableEntity.value,
-                    HttpStatusCode.ServiceUnavailable.value -> ApiResult.Failure.ApiFailure(response.errorBody)
-                    else -> ApiResult.Failure.HttpFailure(response.code, response.errorBody)
-                }
+                response.errorBody?.let {
+                    ApiResult.Failure.ApiFailure(response.statusCode, it)
+                } ?: ApiResult.Failure.HttpFailure(response.statusCode)
             }
             is ApiResponse.Error.NetworkError -> ApiResult.Failure.NetworkFailure(response.e)
-            is ApiResponse.Error.SerializationError -> ApiResult.Failure.UnknownFailure(response.e)
+            is ApiResponse.Error.GenericError -> ApiResult.Failure.UnknownFailure(response.e)
         }
     }
 

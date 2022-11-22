@@ -7,7 +7,7 @@ sealed interface ApiResult<out T, out E> {
     sealed interface Failure<E>: ApiResult<Nothing, E> {
         data class NetworkFailure(val error: IOException): Failure<Nothing>
         data class UnknownFailure(val error: Throwable): Failure<Nothing>
-        data class HttpFailure<E>(val code: Int, val error: E?): Failure<E>
-        data class ApiFailure<E>(val error: E?): Failure<E>
+        data class HttpFailure(val statusCode: Int): Failure<Nothing>
+        data class ApiFailure<E>(val statusCode: Int, val error: E?): Failure<E>
     }
 }

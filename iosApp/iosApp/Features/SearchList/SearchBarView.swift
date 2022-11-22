@@ -12,12 +12,19 @@ import LivesportKit
 struct SearchBarView: View {
     @Binding public var searchQuery: String
     public var onSearchClick: () -> Void
+    public var onChangeQuery: (String) -> Void
+    public var onClearClick: () ->Void
     
     var body: some View {
         HStack {
-            SearchTextField(title: Strings.shared.getString(id: "enter_your_search_request"), text: $searchQuery)
+            SearchTextField(
+                title: "enter_your_search_request".localized,
+                onChangeQuery: onChangeQuery,
+                onClearClick: onClearClick,
+                text: $searchQuery
+            )
             Spacer(minLength: 16)
-            Button(Strings.shared.getString(id: "search_bar_button"), action: onSearchClick)
+            Button("search_bar_button".localized, action: onSearchClick)
         }
     }
 }

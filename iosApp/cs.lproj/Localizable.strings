@@ -11,3 +11,24 @@
 "competitions" = "Soutěže";
 "participants" = "Participanti";
 "enter_your_search_request" = "Zadejte svůj požadavek";
+"refresh" = "Obnovit";
+"no_results" = "Žádné výsledky";
+"try_different_query" = "Zkuste jiný požadavek";
+"start_search_now" = "Začněte hledat";
+"sport_football" = "Fotbal";
+"sport_hockey" = "Hokej";
+"sport_tennis" = "Tenis";
+"sport_basketball" = "Basketbal";
+"sport_american_football" = "Americký fotbal";
+"sport_baseball" = "Baseball";
+"sport_handball" = "Házená";
+"sport_rugby" = "Ragby";
+"sport_floorball" = "Florbal";
+"error" = "Vyskytla se chyba";
+"error_state_unknown_error" = "Neznámá chyba";
+"error_state_service_unavailable" = "Služba je nedostupná";
+"error_state_http_error" = "Neznámá chyba s HTTP kodem";
+"error_state_network_error" = "Zkontrolujte prosím své internetové připojení";
+"error_state_missing_parameters" = "Chybí parametry. Zkontrolujte prosím svůj požadavek";
+"error_state_invalid_parameters" = "Neplatné parametry. Zkontrolujte prosím svůj požadavek";
+

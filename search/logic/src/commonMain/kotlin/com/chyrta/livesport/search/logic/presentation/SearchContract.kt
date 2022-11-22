@@ -6,6 +6,7 @@ import com.chyrta.livesport.search.logic.domain.model.SportEntity
 import com.chyrta.livesport.common.base.mvi.UiEffect
 import com.chyrta.livesport.common.base.mvi.UiEvent
 import com.chyrta.livesport.common.base.mvi.UiState
+import com.chyrta.livesport.search.logic.domain.model.GetSearchResultError
 import com.chyrta.livesport.search.logic.presentation.model.SearchResultViewItem
 
 interface SearchContract {
@@ -16,10 +17,14 @@ interface SearchContract {
         data class OnSelectFilter(val searchFilter: SearchFilter) : Event
     }
 
-    data class ErrorState(
-        val title: String,
-        val message: String
-    )
+    enum class SearchErrorState {
+        InvalidRequestParameters,
+        MissingRequestParameters,
+        NetworkError,
+        HttpError,
+        ServiceUnavailable,
+        UnknownError
+    }
 
     data class State(
         val query: String,
@@ -27,7 +32,7 @@ interface SearchContract {
         val items: List<SearchResultViewItem>,
         val isLoading: Boolean,
         val isSearchCompleted: Boolean,
-        val errorState: ErrorState? = null
+        val errorState: SearchErrorState? = null
     ) : UiState {
 
         val emptyState = isLoading.not() && isSearchCompleted.not() && items.isEmpty()

@@ -23,8 +23,8 @@ import com.chyrta.livesport.search.logic.presentation.SearchContract
 import com.chyrta.livesport.search.logic.presentation.SearchViewModel
 import com.chyrta.livesport.search.ui.components.FilterBar
 import com.chyrta.livesport.search.ui.components.SearchBar
+import com.chyrta.livesport.search.ui.components.SearchError
 import com.chyrta.livesport.search.ui.components.SearchList
-import kiwi.orbit.compose.ui.controls.ButtonPrimary
 import kiwi.orbit.compose.ui.controls.EmptyState
 import kiwi.orbit.compose.ui.controls.InlineLoading
 import kiwi.orbit.compose.ui.controls.Scaffold
@@ -97,17 +97,9 @@ fun SearchScreen(
                         illustration = painterResource(id = KiwiIllustrationR.drawable.il_orbit_sports_equipment),
                         title = stringResource(id = CommonR.string.start_search_now),
                     )
-                    state.hasError -> EmptyState(
-                        illustration = painterResource(id = KiwiIllustrationR.drawable.il_orbit_error),
-                        title = state.errorState!!.title,
-                        description = state.errorState!!.message,
-                        action = {
-                            ButtonPrimary(onClick = {
-                                viewModel.setEvent(SearchContract.Event.OnSearch)
-                            }) {
-                                Text(stringResource(id = CommonR.string.try_again))
-                            }
-                        },
+                    state.hasError -> SearchError(
+                        errorState = state.errorState!!,
+                        onButtonClick = { viewModel.setEvent(SearchContract.Event.OnSearch) }
                     )
                     state.isLoadingResults -> InlineLoading()
                     state.hasResults -> SearchList(

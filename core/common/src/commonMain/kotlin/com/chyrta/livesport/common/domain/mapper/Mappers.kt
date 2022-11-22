@@ -5,5 +5,6 @@ import com.chyrta.livesport.common.domain.model.ErrorEntity
 
 fun ApiError.mapToEntity(): ErrorEntity = ErrorEntity(
     code = code,
+    title = name,
     message = message,
 )

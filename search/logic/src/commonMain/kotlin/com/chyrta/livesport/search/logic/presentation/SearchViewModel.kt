@@ -1,10 +1,13 @@
 package com.chyrta.livesport.search.logic.presentation
 
 import com.chyrta.livesport.common.base.mvi.BaseViewModel
+import com.chyrta.livesport.common.util.Either
+import com.chyrta.livesport.search.logic.domain.model.GetSearchResultError
 import com.chyrta.livesport.search.logic.domain.usecase.GetSearchResultUseCase
 import com.chyrta.livesport.search.logic.presentation.SearchContract.Effect
 import com.chyrta.livesport.search.logic.presentation.SearchContract.Event
 import com.chyrta.livesport.search.logic.presentation.SearchContract.State
+import com.chyrta.livesport.search.logic.presentation.SearchContract.SearchErrorState
 import com.chyrta.livesport.search.logic.presentation.model.SearchResultViewItem
 import kotlinx.coroutines.launch
 import org.koin.core.component.KoinComponent
@@ -50,21 +53,38 @@ open class SearchViewModel: BaseViewModel<Event, State, Effect>(), KoinComponent
             )
         }
         val result = getSearchResultUseCase(currentState.query, currentState.selectedFilter)
-        if (result.isSuccess) {
-            val items = result.getOrNull()
-                .orEmpty()
-                .map { SearchResultViewItem(it.key, it.value) }
+        when (result) {
+            is Either.Left -> {
+                val items = result
+                    .value
+                    .map { SearchResultViewItem(it.key, it.value) }
 
-            setState {
-                copy(
-                    items = items,
-                    isLoading = false,
-                    isSearchCompleted = true
-                )
+                setState {
+                    copy(
+                        items = items,
+                        isLoading = false,
+                        isSearchCompleted = true
+                    )
+                }
+                setEffect { Effect.ScrollResultToTop }
             }
-            setEffect { Effect.ScrollResultToTop }
-        } else {
-            setState { copy(isLoading = false, isSearchCompleted = true) }
+            is Either.Right -> {
+                val errorState = when (result.value) {
+                    is GetSearchResultError.HttpError -> SearchErrorState.HttpError
+                    is GetSearchResultError.InvalidRequestParameters -> SearchErrorState.InvalidRequestParameters
+                    is GetSearchResultError.MissingRequestParameters -> SearchErrorState.MissingRequestParameters
+                    is GetSearchResultError.NetworkError -> SearchErrorState.NetworkError
+                    is GetSearchResultError.ServiceUnavailable -> SearchErrorState.ServiceUnavailable
+                    is GetSearchResultError.UnknownError -> SearchErrorState.UnknownError
+                }
+                setState {
+                    copy(
+                        isLoading = false,
+                        isSearchCompleted = true,
+                        errorState = errorState
+                    )
+                }
+            }
         }
     }
 
