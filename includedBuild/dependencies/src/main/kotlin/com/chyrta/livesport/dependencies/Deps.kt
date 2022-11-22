@@ -69,7 +69,8 @@ object Deps {
 
     object Android {
         private const val gradlePluginVersion = "7.3.1"
-        const val composeVersion = "1.3.1"
+        private const val composeVersion = "1.3.1"
+        const val composeCompilerVersion = "1.3.2"
         private const val composeConstraintLayoutVersion = "1.0.1"
         private const val androidxCoreVersion = "1.9.0"
         private const val materialDesignVersion = "1.7.0"

@@ -10,7 +10,7 @@ import com.chyrta.livesport.search.logic.presentation.SearchViewModel
 import org.koin.dsl.module
 
 val searchModule = module {
-    single<SearchRemoteDataSource> { SearchRemoteDataSourceImpl(get())  }
+    single<SearchRemoteDataSource> { SearchRemoteDataSourceImpl(get()) }
     single<SearchRepository> { SearchRepositoryImpl(get()) }
     single { GetSearchResultUseCase(get()) }
     single { SearchViewModel() }

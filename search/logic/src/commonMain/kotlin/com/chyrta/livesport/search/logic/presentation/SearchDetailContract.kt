@@ -5,8 +5,8 @@ import com.chyrta.livesport.common.base.mvi.UiState
 import com.chyrta.livesport.search.logic.domain.model.SearchResultItemEntity
 
 interface SearchDetailContract {
-    sealed interface Event: UiEvent {
-        data class GetResultItem(val resultItem: SearchResultItemEntity): Event
+    sealed interface Event : UiEvent {
+        data class GetResultItem(val resultItem: SearchResultItemEntity) : Event
     }
 
     data class State(

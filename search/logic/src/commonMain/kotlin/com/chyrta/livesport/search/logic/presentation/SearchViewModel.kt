@@ -6,14 +6,14 @@ import com.chyrta.livesport.search.logic.domain.model.GetSearchResultError
 import com.chyrta.livesport.search.logic.domain.usecase.GetSearchResultUseCase
 import com.chyrta.livesport.search.logic.presentation.SearchContract.Effect
 import com.chyrta.livesport.search.logic.presentation.SearchContract.Event
-import com.chyrta.livesport.search.logic.presentation.SearchContract.State
 import com.chyrta.livesport.search.logic.presentation.SearchContract.SearchErrorState
+import com.chyrta.livesport.search.logic.presentation.SearchContract.State
 import com.chyrta.livesport.search.logic.presentation.model.SearchResultViewItem
 import kotlinx.coroutines.launch
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 
-open class SearchViewModel: BaseViewModel<Event, State, Effect>(), KoinComponent {
+open class SearchViewModel : BaseViewModel<Event, State, Effect>(), KoinComponent {
 
     private val getSearchResultUseCase: GetSearchResultUseCase by inject()
 
@@ -87,5 +87,4 @@ open class SearchViewModel: BaseViewModel<Event, State, Effect>(), KoinComponent
             }
         }
     }
-
 }

@@ -53,7 +53,7 @@ class AppBaseConfiguration: Plugin<Project> {
                 )
             }
 
-            composeOptions.kotlinCompilerExtensionVersion = "1.3.2"
+            composeOptions.kotlinCompilerExtensionVersion = Deps.android.composeCompilerVersion
             buildFeatures.compose = true
 
             target.tasks.withType(KotlinCompile::class.java).configureEach {

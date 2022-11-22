@@ -11,12 +11,12 @@ import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 class MultiplatformBaseConfiguration : Plugin<Project> {
-
     override fun apply(target: Project): Unit = with(target) {
         plugins.apply(Plugins.library)
         plugins.apply(Plugins.kotlinMultiplatform)
         plugins.apply(Plugins.kotlinSerialization)
         plugins.apply(Plugins.kover)
+        plugins.apply(Plugins.lintConfiguration)
 
         val androidExtension = extensions.getByType(LibraryExtension::class.java)
 
@@ -46,12 +46,12 @@ class MultiplatformBaseConfiguration : Plugin<Project> {
             }
 
             composeOptions {
-                kotlinCompilerExtensionVersion = "1.3.2"
+                kotlinCompilerExtensionVersion = Deps.android.composeCompilerVersion
             }
 
             tasks.withType(KotlinCompile::class.java).configureEach {
                 kotlinOptions {
-                    jvmTarget = "1.8"
+                    jvmTarget = JavaVersion.VERSION_1_8.toString()
                 }
             }
         }

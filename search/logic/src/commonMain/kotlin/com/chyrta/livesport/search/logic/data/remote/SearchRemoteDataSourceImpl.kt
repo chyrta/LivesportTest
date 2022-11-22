@@ -1,15 +1,14 @@
 package com.chyrta.livesport.search.logic.data.remote
 
-import com.chyrta.livesport.search.logic.data.remote.model.ApiSearchEntity
-import com.chyrta.livesport.search.logic.data.remote.model.ApiSearchFilter
 import com.chyrta.livesport.common.data.remote.model.ApiError
 import com.chyrta.livesport.common.data.remote.model.ApiResponse
 import com.chyrta.livesport.common.data.remote.model.ApiResult
 import com.chyrta.livesport.common.util.safeRequest
+import com.chyrta.livesport.search.logic.data.remote.model.ApiSearchEntity
+import com.chyrta.livesport.search.logic.data.remote.model.ApiSearchFilter
 import io.ktor.client.HttpClient
 import io.ktor.client.request.parameter
 import io.ktor.client.request.url
-import io.ktor.http.HttpStatusCode
 
 class SearchRemoteDataSourceImpl(
     private val liveSportHttpClient: HttpClient,
@@ -48,5 +47,4 @@ class SearchRemoteDataSourceImpl(
         const val LANGUAGE_ID = "lang-id"
         const val PROJECT_TYPE_ID = "project-type-id"
     }
-
 }

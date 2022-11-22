@@ -35,12 +35,12 @@ class LibraryConfiguration : Plugin<Project> {
                 targetCompatibility = JavaVersion.VERSION_1_8
             }
 
-            composeOptions.kotlinCompilerExtensionVersion = "1.3.2"
+            composeOptions.kotlinCompilerExtensionVersion = Deps.android.composeCompilerVersion
             buildFeatures.compose = true
 
             tasks.withType(KotlinCompile::class.java).configureEach {
                 kotlinOptions {
-                    jvmTarget = "1.8"
+                    jvmTarget = JavaVersion.VERSION_1_8.toString()
                 }
             }
         }

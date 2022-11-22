@@ -1,12 +1,9 @@
 package com.chyrta.livesport.search.logic.presentation
 
-import com.chyrta.livesport.search.logic.domain.model.SearchFilter
-import com.chyrta.livesport.search.logic.domain.model.SearchResultItemEntity
-import com.chyrta.livesport.search.logic.domain.model.SportEntity
 import com.chyrta.livesport.common.base.mvi.UiEffect
 import com.chyrta.livesport.common.base.mvi.UiEvent
 import com.chyrta.livesport.common.base.mvi.UiState
-import com.chyrta.livesport.search.logic.domain.model.GetSearchResultError
+import com.chyrta.livesport.search.logic.domain.model.SearchFilter
 import com.chyrta.livesport.search.logic.presentation.model.SearchResultViewItem
 
 interface SearchContract {
@@ -56,5 +53,4 @@ interface SearchContract {
         object HideKeyboard : Effect
         object ScrollResultToTop : Effect
     }
-
 }

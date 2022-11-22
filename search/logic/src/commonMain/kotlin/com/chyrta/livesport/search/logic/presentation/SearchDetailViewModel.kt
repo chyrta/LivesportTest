@@ -12,5 +12,4 @@ class SearchDetailViewModel :
             is SearchDetailContract.Event.GetResultItem -> setState { copy(item = event.resultItem) }
         }
     }
-
 }
